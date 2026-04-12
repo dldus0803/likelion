@@ -1,0 +1,49 @@
+h2, h4, h5, h6, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+.profile-box {
+    background-color: #fff;
+    width: 250px;
+    margin: 30px 50px 50px 50px;
+    padding: 40px;
+    border-radius: 15px;
+    /* text-align: center;  */
+    box-shadow: 1px 1px 10px 0px #00000082;
+}
+
+img {
+    aspect-ratio: 1 / 1;
+    max-width: 100%; 
+    margin-bottom: 30px;
+}
+
+.profile-box .text {
+    margin: -20px;
+}
+
+.profile-name {
+    /* padding-block: 5px; */
+}
+
+.track {
+    color: #5db6ff;
+    padding-block: 5px;
+}
+
+.profile-details-box {
+    background-color: #fff;
+    width: 85%;
+    margin: 30px 50px 30px 50px;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 1px 1px 10px 0px #00000082;
+}
+
+.club-name {
+    font-weight: 100;
+}
+.bold-tegg {
+    font-style: bold;
+}
