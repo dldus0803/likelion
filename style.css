@@ -17,6 +17,34 @@ body {
     padding: 20px;
 }
 
+.control {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 1px 1px 10px rgb(0, 0, 0, 0, 1);
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.add {
+    background-color: #5db6ff;
+    color: #ffffff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.del {
+    background-color: #ff6b6b;
+    color: #ffffff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 .profile-boxes {
     display: grid;
     grid-template-columns: 1fr;
