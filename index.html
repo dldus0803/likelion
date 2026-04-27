@@ -1,276 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>4-08 멋사 과제</title>
+    <title>아기 사자 대시보드</title>
 </head>
 <body>
-
     <div class="sorting">
-        <div class="control">
+        <div class="controlPanel">
             <div class="btnGroup">
-                <button class="add" id="addBtn">추가</button>
-                <button class="del" id="deleteBtn">추가</button>
+                <button class="btnAdd" id="addBtn">추가</button>
+                <button class="btnDelete" id="deleteBtn">삭제</button>
             </div>
             <div class="total" id="total">총 0명</div>
         </div>
 
-    </div>
-    <div> 
-<!-- 나중의 내가 제작ㄱ -->
-        <input id='name' onkeyup='printName()'/>
-        <input id='track' onkeyup='printName()'/>
-        <input id='Frontend' onkeyup='printName()'/>
-        <input id='detailsIntroduction' onkeyup='printName()'/>
-        <input id='email' onkeyup='printName()'/>
-        <input id='phone' onkeyup='printName()'/>
-        <input id='interest' onkeyup='printName()'/>
-        <input id='word' onkeyup='printName()'/>
-    </div>
-
-
-<!--
-    <div class="sorting">
-        <div class="profile-boxes">
-            <input type="button" onclick="함수명()" value="버튼">
-            <div class="profile-box my">
-
-                <div class="image-wrapper">
-                    <span class="badge">HTML/CSS</span>
-                    <img src="업로드용 이미지.jpg" alt="프로필 이미지">
+        <div class="formSection hidden" id="addFormSection">
+            <form id="addLionForm">
+                <div class="formGrid">
+                    <div class="inputGroup">
+                        <label>이름</label>
+                        <input type="text" id="fName" required>
+                    </div>
+                    <div class="inputGroup">
+                        <label>파트</label>
+                        <select id="fTrack" required>
+                            <option value="Frontend">Frontend</option>
+                            <option value="Backend">Backend</option>
+                            <option value="Design">Design</option>
+                        </select>
+                    </div>
+                    <div class="inputGroup full">
+                        <label>관심 기술</label>
+                        <input type="text" id="fTech" required>
+                    </div>
+                    <div class="inputGroup full">
+                        <label>한 줄 소개</label>
+                        <input type="text" id="fShort" required>
+                    </div>
+                    <div class="inputGroup full">
+                        <label>상세 자기소개</label>
+                        <textarea id="fDetail" rows="3" required></textarea>
+                    </div>
+                    <div class="inputGroup">
+                        <label>이메일</label>
+                        <input type="email" id="fEmail" required>
+                    </div>
+                    <div class="inputGroup">
+                        <label>전화번호</label>
+                        <input type="text" id="fPhone" required>
+                    </div>
                 </div>
-                <div class="text">
-                    <input type="text" id="name" name="name" value="">
-                    <div id='result' ></div>
-                    <h4 id='result' class = "profile-name"></h4>
-                    <h5 class="track">Backend</h5>
-                    <p class="introduction">열심히 배우는 프론트엔드 개발자입니다!</p>
+                <div class="formButtons">
+                    <button type="button" class="btnCancel" id="cancelBtn">취소</button>
+                    <button type="submit" class="btnSubmit">추가하기</button>
                 </div>
-            </div>
-            <div class="profile-box">
-                <div class="image-wrapper">
-                    <span class="badge">Spring</span>
-                    <img src="업로드용 이미지-2.jpg" alt="프로필 이미지">
-                </div>
-                <div class="text">
-                    <h4 class = "profile-name">박아기사자</h4>
-                    <h5 class="track">Backend</h5>
-                    <p class="introduction">안정적인 서버 구조에 관심이 많습니다.</p>
-                </div>
-            </div>
-
-            <div class="profile-box">
-                <div class="image-wrapper">
-                    <span class="badge">Figma</span>
-                    <img src="업로드용 이미지-2.jpg" alt="프로필 이미지">
-                </div>
-                <div class="text">
-                    <h4 class = "profile-name">이아기사자</h4>
-                    <h5 class="track">Design</h5>
-                    <p class="introduction">사용자 관점에서 디자인을 고민합니다.</p>
-                </div>
-            </div>
-
-            <div class="profile-box">
-                <div class="image-wrapper">
-                    <span class="badge">TypeScript</span>
-                    <img src="업로드용 이미지-2.jpg" alt="프로필 이미지">
-                </div>
-                <div class="text">
-                    <h4 class = "profile-name">최아기사자</h4>
-                    <h5 class="track">Frontend</h5>
-                    <p class="introduction">컴포넌트 단위 설계에 흥미가 있습니다.</p>
-                </div>
-            </div>
-
-            <div class="profile-box">
-                <div class="image-wrapper">
-                    <span class="badge">Node.js</span>
-                    <img src="업로드용 이미지-2.jpg" alt="프로필 이미지">
-                </div>
-                <div class="text">
-                    <h4 class = "profile-name">정아기사자</h4>
-                    <h5 class="track">Backend</h5>
-                    <p class="introduction">데이터 흐름을 명확히 하는 개발을 지향합니다.</p>
-                </div>
-            </div>
-
-            <div class="profile-box">
-                <div class="image-wrapper">
-                    <span class="badge">Design System</span>
-                    <img src="업로드용 이미지-2.jpg" alt="프로필 이미지">
-                </div>
-                <div class="text">
-                    <h4 class = "profile-name">오아기사자</h4>
-                    <h5 class="track">Design</h5>
-                    <p class="introduction">디자인 시스템에 관심이 많습니다.</p>
-                </div>
-            </div>
+            </form>
         </div>
 
-        </div>
-        <div class="profile-details-boxes">
-            <div class="profile-details-box">
-                <h2 class="name">이채연</h2>
-                <h5 class="track">Frontend</h5>
-                <h5 class="club-name">LIKE LION</h5>
-                <br>
-                <h5>자기소개</h5>
-                <p class="introduction">중부대학교 26학번 인공지능학과 이채연입니다.</p>
-                <br>
-                <h5>연락처</h5>
-                <ul class="list">
-                    <li>Email: yds06143@gmail.com</li>
-                    <li>Phone: 010-7261-2352</li>
-                    <li>Website: www.google.com</li>
-                </ul>
-                <br>
-                <h5>관심기술</h5>
-                <ul class="list">
-                    <li>HTML/CSS</li>
-                    <li>JavaScript</li>
-                    <li>React (학습 중)</li>
-                </ul>
-                <br>
-                <h5>한 마디</h5>
-                <h6 class="introduction">...</h6>
-            </div>
-
-            <div class="profile-details-box">
-                <h2 class="name">박아기사자</h2>
-                <h5 class="track">Backend</h5>
-                <h5 class="club-name">LIKE LION</h5>
-                <br>
-                <h5>자기소개</h5>
-                <p class="introduction">안정적인 서버 구조에 관심이 많습니다.</p>
-                <br>
-                <h5>연락처</h5>
-                <ul class="list">
-                    <li>Email: yds06143@gmail.com</li>
-                    <li>Phone: 010-7261-2352</li>
-                    <li>Website: www.google.com</li>
-                </ul>
-                <br>
-                <h5>관심기술</h5>
-                <ul class="list">
-                    <li>Spring</li>
-                    <li>JavaScript</li>
-                    <li>React (학습 중)</li>
-                </ul>
-                <br>
-                <h5>한 마디</h5>
-                <h6 class="introduction">...</h6>
-            </div>
-
-            <div class="profile-details-box">
-                <h2 class="name">이아기사자</h2>
-                <h5 class="track">Design</h5>
-                <h5 class="club-name">LIKE LION</h5>
-                <br>
-                <h5>자기소개</h5>
-                <p class="introduction">사용자 관점에서 디자인을 고민합니다.</p>
-                <br>
-                <h5>연락처</h5>
-                <ul class="list">
-                    <li>Email: yds06143@gmail.com</li>
-                    <li>Phone: 010-7261-2352</li>
-                    <li>Website: www.google.com</li>
-                </ul>
-                <br>
-                <h5>관심기술</h5>
-                <ul class="list">
-                    <li>Figma</li>
-                    <li>JavaScript</li>
-                    <li>React (학습 중)</li>
-                </ul>
-                <br>
-                <h5>한 마디</h5>
-                <h6 class="introduction">...</h6>
-            </div>
-
-            <div class="profile-details-box">
-                <h2 class="name">최아기사자</h2>
-                <h5 class="track">Frontend</h5>
-                <h5 class="club-name">LIKE LION</h5>
-                <br>
-                <h5>자기소개</h5>
-                <p class="introduction">컴포넌트 단위 설계에 흥미가 있습니다.</p>
-                <br>
-                <h5>연락처</h5>
-                <ul class="list">
-                    <li>Email: yds06143@gmail.com</li>
-                    <li>Phone: 010-7261-2352</li>
-                    <li>Website: www.google.com</li>
-                </ul>
-                <br>
-                <h5>관심기술</h5>
-                <ul class="list">
-                    <li>TypeScript</li>
-                    <li>JavaScript</li>
-                    <li>React (학습 중)</li>
-                </ul>
-                <br>
-                <h5>한 마디</h5>
-                <h6 class="introduction">...</h6>
-            </div>
-
-            <div class="profile-details-box">
-                <h2 class="name">정아기사자</h2>
-                <h5 class="track">Backend</h5>
-                <h5 class="club-name">LIKE LION</h5>
-                <br>
-                <h5>자기소개</h5>
-                <p class="introduction">데이터 흐름을 명확히 하는 개발을 지향합니다.</p>
-                <br>
-                <h5>연락처</h5>
-                <ul class="list">
-                    <li>Email: yds06143@gmail.com</li>
-                    <li>Phone: 010-7261-2352</li>
-                    <li>Website: www.google.com</li>
-                </ul>
-                <br>
-                <h5>관심기술</h5>
-                <ul class="list">
-                    <li>Node.js</li>
-                    <li>JavaScript</li>
-                    <li>React (학습 중)</li>
-                </ul>
-                <br>
-                <h5>한 마디</h5>
-                <h6 class="introduction">...</h6>
-            </div>
-
-            <div class="profile-details-box">
-                <h2 class="name">오아기사자</h2>
-                <h5 class="track">Design</h5>
-                <h5 class="club-name">LIKE LION</h5>
-                <br>
-                <h5>자기소개</h5>
-                <p class="introduction">디자인 시스템에 관심이 많습니다.</p>
-                <br>
-                <h5>연락처</h5>
-                <ul class="list">
-                    <li>Email: yds06143@gmail.com</li>
-                    <li>Phone: 010-7261-2352</li>
-                    <li>Website: www.google.com</li>
-                </ul>
-                <br>
-                <h5>관심기술</h5>
-                <ul class="list">
-                    <li>Design System</li>
-                    <li>JavaScript</li>
-                    <li>React (학습 중)</li>
-                </ul>
-                <br>
-                <h5>한 마디</h5>
-                <h6 class="introduction">...</h6>
-            </div>
-        </div>
+        <div class="profileBoxes"></div>
+        <div class="profileDetailsBoxes"></div>
     </div>
-     -->
     <script src="script.js"></script>
 </body>
-
 </html>
